@@ -14,15 +14,16 @@ import java.io.IOException;
 @CrossOrigin
 public class StatsController {
 
-    @Autowired
-    private ScoreService scoreService;
+    private final ScoreService scoreService;
 
+    public StatsController(ScoreService scoreService) {
+        this.scoreService = scoreService;
+    }
 
 
     @GetMapping("/note")
-    public Integer ScoreNote(String symptom, String patientId) throws IOException, InterruptedException {
-//        return statsNoteService.getStatsNotes(symptom, patientId);
-        return scoreService.getScoreTotal(symptom, patientId);
+    public String ScoreNote(String symptom, String patientId) throws IOException, InterruptedException {
+       return scoreService.getScoreDanger(symptom, patientId);
 
     }
 

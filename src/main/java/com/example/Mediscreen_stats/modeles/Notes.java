@@ -43,9 +43,9 @@ public class Notes {
         this.note = note;
     }
 
-    @Override
+/*    @Override
     public String toString() {
         return "Notes (id=" + regId + ", patient=" + patientId + "note=" + note + ")";
-    }
+    }*/
 
 }
