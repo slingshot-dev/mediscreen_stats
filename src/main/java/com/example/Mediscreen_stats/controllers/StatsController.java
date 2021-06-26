@@ -20,12 +20,8 @@ public class StatsController {
         this.scoreService = scoreService;
     }
 
-
     @GetMapping("/note")
     public String ScoreNote(String symptom, String patientId) throws IOException, InterruptedException {
-       return scoreService.getScoreDanger(symptom, patientId);
-
+        return scoreService.getScoreDanger(symptom, patientId);
     }
-
-
 }

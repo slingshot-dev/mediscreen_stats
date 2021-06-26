@@ -10,14 +10,14 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class WebClientPatients {
 
     private final RestTemplate restTemplate;
+
     @Autowired
     public WebClientPatients(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    public Integer getAge(Integer patientId){
+    public Integer getAge(Integer patientId) {
 
-//        RestTemplate restTemplate = new RestTemplate();
         String ResourceUrl = "http://localhost:8080/api/patients/age";
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(ResourceUrl)
                 .queryParam("id", patientId);
@@ -28,9 +28,8 @@ public class WebClientPatients {
     }
 
 
-    public String getGenrePatient(Integer patientId){
+    public String getGenrePatient(Integer patientId) {
 
-//        RestTemplate restTemplate = new RestTemplate();
         String ResourceUrl = "http://localhost:8080/api/patients/genre/";
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(ResourceUrl)
                 .queryParam("id", patientId);

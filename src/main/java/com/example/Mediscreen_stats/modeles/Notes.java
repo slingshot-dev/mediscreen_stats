@@ -1,9 +1,6 @@
 package com.example.Mediscreen_stats.modeles;
 
-
-
 public class Notes {
-
 
     private String regId;
     private String patientId;
@@ -42,10 +39,5 @@ public class Notes {
     public void setNote(String note) {
         this.note = note;
     }
-
-/*    @Override
-    public String toString() {
-        return "Notes (id=" + regId + ", patient=" + patientId + "note=" + note + ")";
-    }*/
 
 }

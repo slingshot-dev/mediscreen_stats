@@ -7,21 +7,19 @@ import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
 
-
 @Service
 public class WebClientNotes {
 
     private final RestTemplate restTemplate;
+
     @Autowired
     public WebClientNotes(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
 
-
     public Integer getScore(String symptom, String patientId) {
 
-//        RestTemplate restTemplate = new RestTemplate();
         String ResourceUrl = "http://localhost:8088/api/notes/symptom";
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(ResourceUrl)
                 .queryParam("symptom", symptom)

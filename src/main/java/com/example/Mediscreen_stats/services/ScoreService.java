@@ -1,10 +1,7 @@
 package com.example.Mediscreen_stats.services;
-
 import com.example.Mediscreen_stats.WebClient.WebClientPatients;
 import com.example.Mediscreen_stats.WebClient.WebClientNotes;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
@@ -23,26 +20,25 @@ public class ScoreService {
 
     public Integer getScoreTotal(String symptom, String patientId) throws IOException {
 
-        List<String> triggersConst = Arrays.asList("Hémoglobine A1C","Microalbumine","Taille","Poids","Fumeur","Anormal", "Cholesterol","Vertige","Rechute","Réaction","Anticorps");
+        List<String> triggersConst = Arrays.asList("Hémoglobine A1C", "Microalbumine", "Taille", "Poids", "Fumeur", "Anormal", "Cholesterol", "Vertige", "Rechute", "Réaction", "Anticorps");
         int count = 0;
 
-        for(String s : triggersConst) {
+        for (String s : triggersConst) {
             Integer result = webClientNotes.getScore(s, patientId);
             if (result > 0) {
                 count++;
-              }
             }
-        return count;
         }
+        return count;
+    }
 
 
-
-    public Integer getAgePatient(Integer id){
+    public Integer getAgePatient(Integer id) {
 
         return webClientPatients.getAge(id);
     }
 
-    public String getGenrePatient(Integer id){
+    public String getGenrePatient(Integer id) {
 
         return webClientPatients.getGenrePatient(id);
     }
@@ -58,7 +54,7 @@ public class ScoreService {
 
 
         if (score == 2 & age > 30) {
-             return response = "Borderline";
+            return response = "Borderline";
         }
 
         if (score == 3 & age < 30 & sexe.equals("M")) {
@@ -66,11 +62,11 @@ public class ScoreService {
         }
 
         if (score == 4 & age < 30 & sexe.equals("F")) {
-            return response ="Danger";
+            return response = "Danger";
         }
 
-        if (score == 6 & age > 30 ) {
-            response ="Danger";
+        if (score == 6 & age > 30) {
+            response = "Danger";
             System.out.println(response);
             return response;
         }
@@ -80,19 +76,15 @@ public class ScoreService {
         }
 
         if (score == 7 & age < 30 & sexe.equals("F")) {
-            return response ="Early onset";
+            return response = "Early onset";
         }
 
         if (score == 8 & age > 30) {
-            return response ="Early onset";
+            return response = "Early onset";
         }
 
         return response;
     }
-
-
-
-
-    }
+}
 
 
